@@ -7,8 +7,9 @@ function clock() {
     const Clock = new Date();
     let seconds = Clock.getSeconds();
     let minutes = Clock.getMinutes();
+    let hours   = Clock.getHours();
 
-    return `${Clock.getHours()}:${minutes < 10 ? '0' + String(minutes) : minutes}:${seconds < 10 ? '0' + String(seconds) : seconds}`;
+    return `${hours < 10 ? '0' + String(hours) : hours}:${minutes < 10 ? '0' + String(minutes) : minutes}:${seconds < 10 ? '0' + String(seconds) : seconds}`;
 }
 
 const asyncFetch = url => {

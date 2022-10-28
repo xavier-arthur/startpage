@@ -26,8 +26,9 @@ const fetchMeme = async() => {
 
     let json = await asyncFetch(url);
 
-    if (document.querySelector('#meme-container').classList.contains('hidden'))
-        document.querySelector('#meme-container').classList.remove('hidden');
+    if (document.querySelector('#meme').classList.contains('hidden'))
+        document.querySelector('#meme').classList.remove('hidden');
+
 
     document.querySelector('#meme').setAttribute('src', json.url);
 }

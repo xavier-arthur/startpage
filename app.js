@@ -42,3 +42,7 @@ let clockInterval = setInterval(() => {
 window.onload = function() {
     document.querySelector('#welcome').textContent = `Good ${library.getDayPeriod()}, ${user}`;
 };
+
+document.querySelectorAll('a').forEach(node => {
+    node.setAttribute('href', 'https://' + node.getAttribute('href'));
+});

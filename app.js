@@ -41,6 +41,9 @@ let clockInterval = setInterval(() => {
 
 window.onload = function() {
     document.querySelector('#welcome').textContent = `Good ${library.getDayPeriod()}, ${user}`;
+
+    let geralt = new WiseWolf('who is neymar');
+    geralt.fetch();
 };
 
 document.querySelectorAll('a').forEach(node => {

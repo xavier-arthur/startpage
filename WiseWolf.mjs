@@ -1,6 +1,6 @@
 class WiseWolf {
 
-    #APP_ID           = '36A38L-YTR5AL4UH7';
+    #APP_ID           = '';
     #SHORT_ANSWER_URL = 'https://api.wolframalpha.com/v1/spoken';
     #url              = '';
 

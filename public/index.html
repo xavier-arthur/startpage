@@ -5,13 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="library.js"></script>
-    <script src="app.js" defer></script>
-    <script src="WiseWolf.mjs" defer></script>
+    <script src="/library.js"></script>
+    <script src="/index.js" defer></script>
+    <!-- <script src="/WiseWolf.mjs" defer></script> -->
     <title>Document</title>
 </head>
 <body>
     <video loop autoplay muted class="background" src="background.mp4"></video>
+
+    <div class="is-centered is-half flex is-transparent is-rounded p-1">
+        <form action="/wolfram" method="POST">
+            <input id="wolfram" placeholder="Ask me anything" type="text">
+        </form>
+    </div>
 
     <div class="is-centered is-half flex is-transparent is-rounded">
         <div class="fill">

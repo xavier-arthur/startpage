@@ -1,3 +1,5 @@
+const axios = require('axios');
+
 class WiseWolf {
 
     #APP_ID           = '';
@@ -7,17 +9,16 @@ class WiseWolf {
     /**
      * @param {string} text
     **/
-    constructor(text) {
+    constructor(text, appId) {
         this.text = text.toLowerCase();
+        this.#APP_ID = appId;
     }
-    
 
     fetch = () => {
         this.#buildQuery();
 
-        console.log("https://crossorigin.me/"  + this.#url);
-        let json = this.#getJson(this.#url);
-        // console.log(json);
+        let data = this.#get(this.#url);
+        return data;
     }
 
     #buildQuery = () => {
@@ -30,12 +31,13 @@ class WiseWolf {
         this.#url += `?appid=${this.#APP_ID}`;
     }
 
-    #getJson = (url) => {
-        return new Promise((resolve, reject) => {
-            fetch(url, {  } })
-                .then(response => response.json())
-                .then(json => resolve(json))
-            .catch(err => reject(err));
+    #get = async(url) => {
+        return new Promise((resolve,reject) => {
+            axios.get(url)
+                .then(response => resolve(response.data))    
+                .catch(err => reject(err))
         });
     }
 }
+
+module.exports = { WiseWolf };

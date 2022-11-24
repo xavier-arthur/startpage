@@ -16,6 +16,7 @@ app.use((req, _, next) => {
 
 app.use(express.static(STATIC_PATH));
 app.use(bodyParser.urlencoded({ extended: true}));
+app.use(bodyParser.json());
 
 app.get('/', (_, res) => {
     res.sendFile(STATIC_PATH + 'index.html');
@@ -40,6 +41,7 @@ app.post('/wolfram', async(req, res) => {
         json.payload = await whiteWolf.fetch();
     } catch (err) {
         json.err = 'An error ocurred, Wolfram Alpha did not understand your question';
+        console.log(err);
     }
 
     return res.send(json);

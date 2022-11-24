@@ -14,9 +14,12 @@
     <video loop autoplay muted class="background" src="background.mp4"></video>
 
     <div class="is-centered is-half flex is-transparent is-rounded p-1">
-        <form action="/wolfram" method="POST">
-            <input id="wolfram" placeholder="Ask me anything" type="text">
-        </form>
+        <input onkeyup="sendWolframForm(event, this.value);" id="wolfram" placeholder="Ask me anything" type="text">
+    </div>
+
+    <div id="response-container" class="fade-in is-centered is-half flex flex-row-inverse is-transparent is-rounded p-1 hidden">
+        <i style="margin: 1em .3em 0 0" class="bi bi-arrow-return-left"></i>
+        <p class="fill" id="wolfram-response"></p>
     </div>
 
     <div class="is-centered is-half flex is-transparent is-rounded">

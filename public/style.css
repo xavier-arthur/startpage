@@ -49,6 +49,10 @@
         display: flex;
     }
 
+    .flex-row-inverse {
+        flex-direction: row-reverse;
+    }
+
     .flex.center {
         justify-content: center;
     }
@@ -85,6 +89,10 @@
     input#wolfram::placeholder {
         color: var(--fg);
         filter: brightness(75%);
+    }
+
+    input:-webkit-autofil {
+        background: none;
     }
 
     input#wolfram {

@@ -2,15 +2,18 @@ const bodyParser = require('body-parser');
 const express   = require('express');
 const { join }    = require('path');
 const app       = express();
-const PORT      = 5200;
 const { WiseWolf } = require('./library/WiseWolf.js');
 
 require('dotenv').config();
 
+const PORT = process.env.WEBSERVER_PORT;
+
 const STATIC_PATH = join(__dirname, 'public');
 
 app.use((req, _, next) => {
-    console.log(req.method + " " + req.url);
+    let timestamp = (new Date()).getTime();
+
+    console.log(`${timestamp}  :  ${req.method}  ${req.url}`);
     next();
 });
 

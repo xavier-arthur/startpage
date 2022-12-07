@@ -3,15 +3,17 @@ const axios = require('axios');
 class WiseWolf {
 
     #APP_ID           = '';
-    #SHORT_ANSWER_URL = 'https://api.wolframalpha.com/v1/spoken';
+    static SHORT_ANSWER_URL = 'https://api.wolframalpha.com/v1/spoken';
+    static SIMPLE_API_URL   = 'http://api.wolframalpha.com/v1/simple';
     #url              = '';
 
     /**
      * @param {string} text
     **/
-    constructor(text, appId) {
+    constructor(text, appId, endpoint) {
         this.text = text.toLowerCase();
         this.#APP_ID = appId;
+        this.endpoint = endpoint;
     }
 
     fetch = () => {
@@ -24,7 +26,9 @@ class WiseWolf {
     #buildQuery = () => {
         this.#embedAppId()
         this.text = this.text.replace(/\s/g,'+');
-        this.#url  = `${this.#SHORT_ANSWER_URL}${this.#url}&i=${this.text}`;
+        this.#url  = `${this.endpoint}${this.#url}&i=${this.text}`;
+
+        console.log(this.#url);
     };
 
     #embedAppId = () => {
@@ -33,8 +37,8 @@ class WiseWolf {
 
     #get = async(url) => {
         return new Promise((resolve,reject) => {
-            axios.get(url)
-                .then(response => resolve(response.data))    
+            axios.get(url, { responseType: 'arraybuffer' })
+                .then(response => resolve(Buffer.from(response.data, 'binary').toString('base64')))
                 .catch(err => reject(err))
         });
     }

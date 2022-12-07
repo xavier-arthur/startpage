@@ -38,7 +38,7 @@ app.post('/wolfram', async(req, res) => {
         return res.send(json);
     }
 
-    let whiteWolf = new WiseWolf(post.prompt, process.env.APPID);
+    let whiteWolf = new WiseWolf(post.prompt, process.env.APPID, WiseWolf.SIMPLE_API_URL);
 
     try {
         json.payload = await whiteWolf.fetch();

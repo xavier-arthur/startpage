@@ -22,7 +22,7 @@ const asyncFetch = url => {
 }
 
 const fetchMeme = async() => {
-    const url = "https://meme-api.herokuapp.com/gimme";
+    const url = "https://meme-api.com/gimme";
 
     let json = await asyncFetch(url);
 
@@ -67,6 +67,6 @@ const sendWolframForm = async(e, value) => {
     let responseBox = document.getElementById('wolfram-response');
     let responseContainer = document.getElementById('response-container');
 
-    responseBox.innerText = json.payload ? json.payload : json.err;
+    responseBox.setAttribute('src', `data:image;base64,${json.payload}`);
     responseContainer.classList.remove('hidden');
 }

@@ -8,3 +8,4 @@ services:
       - WEBSERVER_PORT=5858
     ports:
       - "5858:5858"
+    restart: unless-stopped

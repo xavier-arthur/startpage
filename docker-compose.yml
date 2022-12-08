@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  page:
+    build: .
+    environment:
+      - APPID=
+      - WEBSERVER_PORT=5858
+    ports:
+      - "5858:5858"
